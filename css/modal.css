@@ -437,7 +437,7 @@
   }
 
   .hero-section {
-    min-height: 93vh;
+    min-height: 70vh;
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);

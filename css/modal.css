@@ -238,6 +238,14 @@
       top: 6px;
       display: block;
   }
+  #error6 {
+    position: relative;
+    top: -20px;
+  }
+  #error7 {
+    position: relative;
+    top: -2px;
+  }
   .checkbox-label,
   .checkbox2-label {
     position: relative;

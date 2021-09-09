@@ -19,7 +19,7 @@ function editNav() {
   const modalBtn = document.querySelectorAll(".modal-btn");
   const formData = document.querySelectorAll(".formData input");
   const pushform = document.querySelector(".btn-submit");
-  const locationDiv = document.querySelector(".location_form");
+  const locationDiv = document.querySelector(".locations");
   const locationCheckbox = document.querySelectorAll(".location_form [name=\"location\"]");
   const modalbody = document.querySelector(".modal-body");
   const modalbodyconfirm = document.querySelector(".modal-body-confirm");
@@ -202,7 +202,7 @@ function editNav() {
   }
   // condition d'utilisation validation
   function conditionData(data) {
-    var error = ('<span id="error7" class="msg_error">Vous devez acceptez les termes et conditions d’utilisation.</span>');
+    var error = ('<span id="error7" class="msg_error">Vous devez accepter les termes et conditions d’utilisation.</span>');
     var errorData = document.getElementById("error7");
     if (data.checked == true) {
       valid = true;

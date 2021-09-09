@@ -2,15 +2,15 @@
     --font-default: "DM Sans", Arial, Helvetica, sans-serif;
     --font-slab: var(--font-default);
     --modal-duration: 0.8s;
-  }
-  * {
+}
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  /* Landing Page */
+}
   
-  body {
+body {
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -18,105 +18,154 @@
     font-size: 18px;
     max-width: 1300px;
     margin: 0 auto;
-  }
+}
   
-  p {
+p {
     margin-bottom: 0;
     padding: 0.5vw;
-  }
+}
   
-  img {
+img {
     padding-right: 1rem;
-  }
-  
-  .topnav {
-    overflow: hidden;
-    margin: 3.5%;
-  }
-  .header-logo {
-      float: left;
-  }
-  .main-navbar {
-      float: right;
-  }
-  .topnav a {
-    float: left;
-    display: block;
-    color: #000000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3%;
+}
+
+.navbar-logo {
+    cursor: pointer;
+}
+
+.navbar-links{
+    list-style-type: none;
+    display:flex;
+}  
+
+.navbar-link {
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-family: Roboto, sans-serif;
+}
+.navbar-link a {
+    color: #000;
+    text-decoration: none;
     text-align: center;
     padding: 12px 12px;
     margin: 5px;
-    text-decoration: none;
     font-size: 20px;
     font-family: Roboto, sans-serif;
-  }
-  
-  .topnav a:hover {
+}
+
+.navbar-link a:hover {
     background-color: #ff0000;
     color: #ffffff;
     border-radius: 15px;
-  }
-  
-  .topnav a.active {
-    background-color: #ff0000;
-    color: #ffffff;
-    border-radius: 15px;
-  }
-  
-  .topnav .icon {
+}
+        
+.burger {
     display: none;
-  }
-  
-  @media screen and (max-width: 580px) {
-    .topnav {
-        overflow: hidden;
-    }
-    .header-logo {
-        margin-top: 10px;
-    }
-    .header-logo img{
-        display: inline-block;
-        width: 160px;
-        height: 30px;
-    }
+}
 
-    .topnav a {
-        display: none;
+@media screen and (max-width: 1100px) {
+    .navbar-links {
+        display:flex;
+        flex-direction:column;
+        width:0;
+        height:50vh;  
+        position:absolute;
+        top:100px;
+        right:0;     
+        background:#fff;     
+        transform: translateX(110%);
+        z-index:999;
+        color: white;
+      }
+      .show-nav .navbar-links {
+        width:100vw;    
+        transform: translateX(0);
+      } 
+      .navbar-link {    
+        transform: translateX(101%);
+        transition: all .5s ease-in-out;
+        margin-bottom: 25px;
+        color : black;
+      }
+      
+      .show-nav .navbar-link  {        
+        transform: translateX(0);    
+      }   
+      .navbar-link > a {
+        display:block;
+        padding:1rem;
+        font-size:1.6rem;
+        color:var(--navbar-color);  
+        transition: all .4s ease-in-out;
+      }
+      .navbar-link a:hover {
+        background-color: transparent;
+        color: red;
+        border-radius: 15px;
     }
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
+      
+      /* Toggle menu */
+      .burger {
+        display:block;
+        position:relative;
+        padding:0;
+        width:45px;
+        height:13px;
+        border:none;
+        cursor:pointer;
+        color: black;
+        transition: all .5s ease-in-out; 
+        border-radius: 15px;
+      }
+      
 
-  }
-  
-  @media screen and (max-width: 768px) {
-    .topnav.responsive {
-        position: relative;
+      .bar { 
+        display:block;    
+        width:45px;
+        height:4px;  
+        color: black;
+        border-radius:3px;
+        transition: all .5s ease-in-out;   
+      }
+      .bar::before, .bar::after {
+        content:"";
+        width:45px;
+        height:4px;
+        position:absolute; 
+        left:0;  
+        background:#000; 
+        border-radius:3px;
+        transition: all .5s ease-in-out;
+      }
+      .bar::before {
+        transform:translateY(0px)
+      }
+      .bar::after {
+        transform:translateY(12px)
+      }
+      .show-nav .bar {
+        width:0;
+        background:transparent;    
+      }
+      .show-nav .bar::before {
+        transform:rotate(45deg);
+      }
+      .show-nav .bar::after {
+        transform:rotate(-45deg);
+      }
     }
-    .topnav.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-  }
-  
-  
-   @media screen and (max-width: 1100px) {
-    .topnav a {
-        display: none;
-    }
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-  }
-  
+    
+
+
+
   main {
     font-size: 130%;
     font-weight: bolder;

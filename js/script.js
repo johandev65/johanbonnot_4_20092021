@@ -1,19 +1,12 @@
-// import {} from "./components/nav.js";
-// import {} from "./components/modal.js";
-// import {} from "./components/form.js";
-
-
-
-// Menu responsive (ne marche pas)
-function editNav() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
+function toggleMenu () {  
+    const navbar = document.querySelector('.navbar');
+    const burger = document.querySelector('.burger');
+    burger.addEventListener('click', (e) => {    
+      navbar.classList.toggle('show-nav');
+    });    
   }
-  
+  toggleMenu();
+
 
   // Ciblage des éléments du DOM
   const modalBtn = document.querySelectorAll(".modal-btn");
@@ -28,15 +21,12 @@ function editNav() {
   const locationCheckbox = document.querySelectorAll(".location_form [name=\"location\"]");
   const modalbodyconfirm = document.querySelector(".modal-body-confirm");
 
-  const edit_nav = document.querySelector(".icon");
-  
 
   // Evènements
   modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
   closemodal.addEventListener("click",  closeModal);
   closemodalconfirm.addEventListener("click",  closeModal);
   pushform.addEventListener("click", pushForm);
-  edit_nav.addEventListener("click", editNav);
   
   // lancement de la fenêtre modale
   function launchModal() {

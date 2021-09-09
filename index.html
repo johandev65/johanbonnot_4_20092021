@@ -21,19 +21,19 @@
     <body>
     <!-- HEADER -->
         <header>
-            <div class="topnav" id="myTopnav">
-                <div class="header-logo">
+            <div class="navbar" role="navigation">
+                <div class="navbar-logo">
                     <img alt="logo" src="./assets/logo/logo.png" width="250" height="45" />
                 </div>
-                <div class="main-navbar">
-                    <a href="#" class="active"><span>Accueil</span></a>
-                    <a href="#"><span>Détails de l'évènement</span></a>
-                    <a href="#"><span>À propos</span></a>
-                    <a href="#"><span>Contact</span></a>
-                    <a href="#"><span>Évènements passés</span></a>
-                    <a href="javascript:void(0);" class="icon" onclick="editNav()">
-                        <i class="fa fa-bars"></i>
-                    </a>
+                <ul class="navbar-links">
+                    <li class="navbar-link active"><a href="#">Accueil</a></li>
+                    <li class="navbar-link"><a href="#">Détails de l'évènement</a></li>
+                    <li class="navbar-link"><a href="#">À propos</a></li>
+                    <li class="navbar-link"><a href="#">Contact</a></li>
+                    <li class="navbar-link"><a href="#">Évènements passés</a></li>
+                </ul>
+                <div class="burger">
+                    <span class="bar" onclick="toggleMenu()"></span>
                 </div>
             </div>
         </header>

@@ -167,10 +167,6 @@
     background: #3876ac;
   }
   
-  .smFont {
-    font-size: 16px;
-  }
-  
   .bground {
     display: none;
     position: fixed;
@@ -259,7 +255,7 @@
 
   #error6 {
     position: relative;
-    top: -20px;
+    top: -2px;
   }
 
   #error7 {

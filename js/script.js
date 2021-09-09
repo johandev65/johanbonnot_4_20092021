@@ -19,7 +19,7 @@ function editNav() {
   const modalBtn = document.querySelectorAll(".modal-btn");
   const formData = document.querySelectorAll(".formData input");
   const pushform = document.querySelector(".btn-submit");
-  const locationDiv = document.querySelector(".locations");
+  const locationDiv = document.querySelector(".location_form");
   const locationCheckbox = document.querySelectorAll(".location_form [name=\"location\"]");
   const modalbody = document.querySelector(".modal-body");
   const modalbodyconfirm = document.querySelector(".modal-body-confirm");

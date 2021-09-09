@@ -3,6 +3,8 @@
 // import {} from "./components/form.js";
 
 
+
+// Menu responsive (ne marche pas)
 function editNav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -12,43 +14,52 @@ function editNav() {
     }
   }
   
-  // DOM Elements
+
+  // Ciblage des éléments du DOM
+  const modalBtn = document.querySelectorAll(".modal-btn");
   const modalbg = document.querySelector(".bground");
+  const modalbody = document.querySelector(".modal-body");
   const closemodal = document.querySelector(".close");
   const closemodalconfirm = document.querySelector(".close2");
-  const modalBtn = document.querySelectorAll(".modal-btn");
+
   const formData = document.querySelectorAll(".formData input");
   const pushform = document.querySelector(".btn-submit");
   const locationDiv = document.querySelector(".location_form");
   const locationCheckbox = document.querySelectorAll(".location_form [name=\"location\"]");
-  const modalbody = document.querySelector(".modal-body");
   const modalbodyconfirm = document.querySelector(".modal-body-confirm");
+
   const edit_nav = document.querySelector(".icon");
   
-  // launch modal events
+
+  // Evènements
   modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
   closemodal.addEventListener("click",  closeModal);
   closemodalconfirm.addEventListener("click",  closeModal);
   pushform.addEventListener("click", pushForm);
   edit_nav.addEventListener("click", editNav);
   
-  // launch modal form
+  // lancement de la fenêtre modale
   function launchModal() {
     modalbg.style.display = "block";
   }
-  // close modal form
+
+
+  // fermeture des 2 fenêtres modales (celle du formulaire et celle de la confirmation)
   function closeModal() {
     modalbg.style.display = "none";
     modalbody.style.display = "block";
     modalbodyconfirm.style.display = "none";
     resetFrom();
   }
-  // push form
+
+
+  // validation du formulaire
+
   function pushForm(e) {
     e.preventDefault();
     validationFrom();
   }
-  // validation form
+
   function validationFrom() {
     let validation_list = []
     first_data = firstData(formData[0].value);
@@ -74,13 +85,15 @@ function editNav() {
       return false;
     }
   }
-  // reset form
+
+
+  // Reset du formulaire
   function resetFrom() {
     for (element in formData) {
       try {
         formData[element].value = "";
         formData[element].style.borderColor = "white";
-        // reset error messages
+        // reset des messages d'erreurs
         error_msg_list = ["error1", "error2", "error3", "error4", "error5", "error6", "error7"];
         var errorData = document.getElementById(error_msg_list[element]);
         errorData.remove();
@@ -88,7 +101,7 @@ function editNav() {
     }
   }
   
-  // first name validation
+  // validation du prénom
   function firstData(data) {
     var valid = false;
     var error = ('<span id="error1" class="msg_error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>');
@@ -106,7 +119,8 @@ function editNav() {
     } catch {}
     return valid;
   }
-  // last name validation
+
+  // validation du nom
   function lastData(data) {
     var valid = false;
     var error = ('<span id="error2" class="msg_error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>');
@@ -124,7 +138,8 @@ function editNav() {
     } catch {}
     return valid;
   }
-  // email validation
+
+  // validation de l'email
   function emailData(data) {
     var valid = false;
     const regex_mail = RegExp(/^[a-z0-9._-]+@[a-z_]+?\.[a-z]{2,3}$/);
@@ -143,7 +158,8 @@ function editNav() {
     } catch {}
     return valid;
   }
-  // birthdate validation
+
+  // validation de la date de naissance
   function birthdateData(data) {
     var valid = false;
     const regex_date = RegExp(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/);
@@ -163,7 +179,8 @@ function editNav() {
     } catch {}
     return valid;
   }
-  // quantity validation
+
+  // validation du nombre de tournois disputés
   function quantityData(data) {
     var valid = false;
     const regex_quantity = RegExp(/^\d{1,}$/);
@@ -182,7 +199,8 @@ function editNav() {
     } catch {}
     return valid;
   }
-  // location validation
+
+  // validation de la ville
   function locationData(data) {
     var valid = false;
     for (element in  data) {
@@ -200,7 +218,8 @@ function editNav() {
     } catch {}
     return valid;
   }
-  // condition d'utilisation validation
+
+  // validation des conditions d'utilisation
   function conditionData(data) {
     var error = ('<span id="error7" class="msg_error">Vous devez accepter les termes et conditions d’utilisation.</span>');
     var errorData = document.getElementById("error7");

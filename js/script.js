@@ -53,14 +53,13 @@ function editNav() {
   }
 
 
-  // validation du formulaire
-
+  // validation du formulaire ou non (cela bloquera la soummission si tout n'est pas validé)
   function pushForm(e) {
     e.preventDefault();
-    validationFrom();
+    validationForm();
   }
 
-  function validationFrom() {
+  function validationForm() {
     let validation_list = []
     first_data = firstData(formData[0].value);
     last_data = lastData(formData[1].value);
@@ -72,17 +71,20 @@ function editNav() {
     validation_form = true;
     validation_list.push(first_data, last_data, email_data, birthdate_data, quantity_data, location_data, condition_data);
     for (element in validation_list) {
-      if (validation_list[element] == false) {
-        validation_form = false;
-      }
+        // si un ou plusieurs éléments sonts incorrects, cela bloquera la soumission l'envoi du formulaire
+        if (validation_list[element] == false) {
+            validation_form = false;
+        }
     }
-    if (validation_form == true) {
-      modalbody.style.display = "none";
-      modalbodyconfirm.style.display = "block";
-      resetFrom();
-      }
-     else {
-      return false;
+        // si tous les éléments sont corrects, cela validera la soummission du formulaire et affichera une 2ème fenêtre modale de confirmation)
+        if (validation_form == true) {
+        modalbody.style.display = "none";
+        modalbodyconfirm.style.display = "block";
+        resetFrom();
+        }
+         // si réponse vide, cela bloquera également la soumission l'envoi du formulaire
+        else {
+        return false;
     }
   }
 

@@ -49,7 +49,7 @@ function editNav() {
     modalbg.style.display = "none";
     modalbody.style.display = "block";
     modalbodyconfirm.style.display = "none";
-    resetFrom();
+    resetForm();
   }
 
 
@@ -80,7 +80,7 @@ function editNav() {
         if (validation_form == true) {
         modalbody.style.display = "none";
         modalbodyconfirm.style.display = "block";
-        resetFrom();
+        resetForm();
         }
          // si réponse vide, cela bloquera également la soumission l'envoi du formulaire
         else {
@@ -90,7 +90,7 @@ function editNav() {
 
 
   // Reset du formulaire
-  function resetFrom() {
+  function resetForm() {
     for (element in formData) {
       try {
         formData[element].value = "";

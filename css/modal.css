@@ -133,7 +133,7 @@ img {
         height:4px;  
         color: black;
         border-radius:3px;
-        transition: all .5s ease-in-out;   
+        transition: all .1s;   
         cursor: pointer;
       }
       .bar::before, .bar::after {
@@ -144,7 +144,7 @@ img {
         left:0;  
         background:#000; 
         border-radius:3px;
-        transition: all .5s ease-in-out;
+        transition: all .1s;
       }
       .bar::before {
         transform:translateY(0px)
@@ -165,11 +165,9 @@ img {
     }
     
 
-
-
   main {
     font-size: 130%;
-    font-weight: bolder;
+    font-weight: bold;
     color: black;
     padding-top: 0.5vw;
     padding-left: 2vw;

@@ -76,45 +76,42 @@ img {
     .navbar-links {
         display:flex;
         flex-direction:column;
-        width:100%;
         height:100vh;  
+        width:100%;
         position:absolute;
         top:100px;
         right:0;     
         background:#fff;     
-        transform: translateX(110%);
-        z-index:999;
+        z-index:2;
         color: white;
-      }
-      .show-nav .navbar-links {
-        width:100vw;    
+    }
+    .show-nav .navbar-links {
+        width:100%;    
         transform: translateX(0);
-      } 
-      .navbar-link {    
+    } 
+    .navbar-link {    
         transform: translateY(-10%);
         transition: all .4s ease;
         margin-bottom: 25px;
         color : black;
-      }
-      
-      .show-nav .navbar-link {        
+    }
+    .show-nav .navbar-link {        
         transform: translateX(0);    
-      }   
-      .navbar-link > a {
+    }   
+    .navbar-link > a {
         display:block;
         padding:1rem;
         font-size:1.6rem;
         color:var(--navbar-color);  
-        transition: all .4s ease-in-out;
-      }
-      .navbar-link a:hover {
+        transition: all .2s ease;
+    }
+    .navbar-link a:hover {
         background-color: transparent;
         color: red;
         border-radius: 15px;
     }
-      
-      /* Toggle menu */
-      .burger {
+    /* Toggle menu */
+    .burger {
         display:block;
         position:relative;
         padding:30px 15px;
@@ -123,10 +120,9 @@ img {
         border:1px solid transparent;
         cursor:pointer;
         color: black;
-        transition: all .1s ease;
-      }
-      
-      .bar::before, .bar::after {
+        transition: all .2s ease;
+    }
+    .bar::before, .bar::after {
         content:"";
         width:60px;
         height:4px;
@@ -134,26 +130,25 @@ img {
         left:0;  
         background:#000; 
         border-radius:3px;
-        transition: all .1s;
+        transition: all .2s;
         cursor: pointer;
-      }
-      .bar::before {
-        transform:translateY(-10px);
-      }
-      .bar::after {
-        transform:translateY(8px);
-      }
-      .show-nav .bar {
-        background:transparent;    
-      }
-      .show-nav .bar::before {
-        transform:rotate(45deg);
-      }
-      .show-nav .bar::after {
-        transform:rotate(-45deg);
-      }
     }
-    
+    .bar::before {
+        transform:translateY(-10px);
+    }
+    .bar::after {
+        transform:translateY(8px);
+    }
+    .show-nav .bar {
+        background:transparent;    
+    }
+    .show-nav .bar::before {
+        transform:rotate(45deg);
+    }
+    .show-nav .bar::after {
+        transform:rotate(-45deg);
+    }
+}
 
   main {
     font-size: 130%;
@@ -208,7 +203,7 @@ img {
   .bground {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     left: 0;
     top: 0;
     height: 100%;

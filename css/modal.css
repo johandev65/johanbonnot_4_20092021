@@ -91,13 +91,13 @@ img {
         transform: translateX(0);
       } 
       .navbar-link {    
-        transform: translateX(101%);
-        transition: all .5s ease-in-out;
+        transform: translateY(-10%);
+        transition: all .4s ease;
         margin-bottom: 25px;
         color : black;
       }
       
-      .show-nav .navbar-link  {        
+      .show-nav .navbar-link {        
         transform: translateX(0);    
       }   
       .navbar-link > a {

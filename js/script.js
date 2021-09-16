@@ -24,8 +24,9 @@ function toggleMenu () {
 
   // Evènements
   modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-  closemodal.addEventListener("click",  closeModal);
-  closemodalconfirm.addEventListener("click",  closeModal);
+  closemodal.addEventListener("click", closeModal);
+  closemodal.reset("click", closeModal);
+  closemodalconfirm.addEventListener("click", closeModal);
   pushform.addEventListener("click", pushForm);
   
   // lancement de la fenêtre modale
@@ -48,6 +49,7 @@ function toggleMenu () {
     e.preventDefault();
     validationForm();
   }
+
 
   function validationForm() {
     let validation_list = []
@@ -78,11 +80,11 @@ function toggleMenu () {
     }
   }
 
-
   // Reset du formulaire
   function resetForm() {
     for (element in formData) {
-      try {
+      try {    
+        document.getElementById("myForm").reset(); 
         formData[element].value = "";
         formData[element].style.borderColor = "white";
         // reset des messages d'erreurs
@@ -194,9 +196,9 @@ function toggleMenu () {
 
   // validation de la ville
   function locationData(data) {
-    var valid = false;
+    var valid = true;
     for (element in  data) {
-      if (data[element].checked == true) {
+      if (data[element].checked = false) {
         valid = true;
       }
     };

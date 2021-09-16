@@ -117,43 +117,33 @@ img {
       .burger {
         display:block;
         position:relative;
-        padding: 25px 15px 20px 15px;
+        padding:30px 15px;
         width:60px;
         height:60px;
-        border:none;
+        border:1px solid transparent;
         cursor:pointer;
         color: black;
-        transition: all .5s ease-in-out; 
-        border-radius: 15px;
+        transition: all .1s ease;
       }
-    
-      .bar { 
-        display:block;    
-        width:45px;
-        height:4px;  
-        color: black;
-        border-radius:3px;
-        transition: all .1s;   
-        cursor: pointer;
-      }
+      
       .bar::before, .bar::after {
         content:"";
-        width:45px;
+        width:60px;
         height:4px;
         position:absolute; 
         left:0;  
         background:#000; 
         border-radius:3px;
         transition: all .1s;
+        cursor: pointer;
       }
       .bar::before {
-        transform:translateY(0px)
+        transform:translateY(-10px);
       }
       .bar::after {
-        transform:translateY(12px)
+        transform:translateY(8px);
       }
       .show-nav .bar {
-        width:60px;
         background:transparent;    
       }
       .show-nav .bar::before {
@@ -290,15 +280,15 @@ img {
   }
 
   .formData {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
   }
   
   .msg_error {
-      font-size: 13px;
-      color: red;
-      position: relative;
-      top: 6px;
-      display: block;
+    font-size: 13px;
+    color: red;
+    position: relative;
+    top: -2px;
+    display: inline-block;
   }
 
   #error6 {

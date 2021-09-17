@@ -289,6 +289,7 @@ input {
     margin-left: 36px;
     font-size: 13px;
     font-weight: normal;
+    cursor: pointer;
 }
 
 .checkbox-label .checkbox-icon,

@@ -23,21 +23,31 @@
     <body>
     <!-- HEADER -->
         <header>
-            <div class="navbar" role="navigation">
-                <div class="navbar-logo">
-                    <img alt="logo" src="./assets/logo/logo.png" width="250" height="45" />
-                </div>
-                <ul class="navbar-links">
-                    <li class="navbar-link active"><a href="./index.html">Accueil</a></li>
-                    <li class="navbar-link"><a href="#">Détails de l'évènement</a></li>
-                    <li class="navbar-link"><a href="#">À propos</a></li>
-                    <li class="navbar-link"><a href="#">Contact</a></li>
-                    <li class="navbar-link"><a href="#">Évènements passés</a></li>
+            <nav class="navbar">
+                <a href="index.html"><img src="./assets/logo/logo.png" alt="logo" width="250" height="45"/></a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Détails de l'évènement</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Évènements passés</a>
+                    </li>
                 </ul>
-                <div class="burger">
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                     <span class="bar"></span>
                 </div>
-            </div>
+            </nav>
         </header>
 
         <!-- MAIN  -->
@@ -128,7 +138,7 @@
 
                     <div class="modal-body-confirm">
                         <h3>Merci d'avoir soumis vos informations d'inscription</h3><br>
-                        <button class="close2">Fermer</button>
+                        <button class="close-confirm">Fermer</button>
                     </div>
 
                 </div>

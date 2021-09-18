@@ -10,14 +10,14 @@ function mobileMenu() {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
 }
+
 function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 }
 
 
-
-// Ciblage des éléments du DOM de la fenêtre modale et du formulaire
+// Ciblage des éléments du DOM
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalbg = document.querySelector(".bground");
 const modalbody = document.querySelector(".modal-body");
@@ -31,14 +31,12 @@ const locationDiv = document.querySelector(".location_form");
 const locationCheckbox = document.querySelectorAll(".location_form [name=\"location\"]");
 
 
-// Ajout d'évènements
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); //ouverture de la modale au clic du bouton "je m'inscris"
-closemodal.addEventListener("click", closeModal); //fermeture de la modale au clic du bouton croix
-closemodal.reset("click", closeModal); //réinitialisation de la modale au clic du bouton croix
-closemodalconfirm.addEventListener("click", closeModal); //fermeture de la modale de confirmation au clic du bouton croix
-pushform.addEventListener("click", pushForm); //validation du formulaire au clic du bouton "c'est parti"
+// Ajout d"évènements
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+closemodal.addEventListener("click",  closeModal);
+closemodalconfirm.addEventListener("click",  closeModal);
+pushform.addEventListener("click", pushForm);
   
-
 // lancement de la fenêtre modale
 function launchModal() {
     modalbg.style.display = "block";
@@ -78,26 +76,26 @@ function validationForm() {
             validation_form = false;
         }
     }
-    // si tous les éléments sont corrects, cela validera la soummission du formulaire et affichera une 2ème fenêtre modale de confirmation)
-    if (validation_form == true) {
-        modalbody.style.display = "none";
-        modalbodyconfirm.style.display = "block";
-        resetForm();
-    }
-    // si réponse vide, cela bloquera également la soumission l'envoi du formulaire
-    else {
-        return false;
+        // si tous les éléments sont corrects, cela validera la soummission du formulaire et affichera une 2ème fenêtre modale de confirmation)
+        if (validation_form == true) {
+            modalbody.style.display = "none";
+            modalbodyconfirm.style.display = "block";
+            resetForm();
+        }
+         // si réponse vide, cela bloquera également la soumission l'envoi du formulaire
+        else {
+            return false;
     }
 }
 
-// Réinitialisation du formulaire
+
+// Reset du formulaire
 function resetForm() {
     for (element in formData) {
-        try {    
+        try {
             document.getElementById("myForm").reset(); 
             formData[element].value = "";
             formData[element].style.borderColor = "white";
-
             // reset des messages d'erreurs
             error_msg_list = ["error1", "error2", "error3", "error4", "error5", "error6", "error7"];
             var errorData = document.getElementById(error_msg_list[element]);
@@ -133,8 +131,8 @@ function lastData(data) {
     var errorData = document.getElementById("error2");
 
     if (data.length > 1) {
-      valid = true;
-      formData[1].style.borderColor = "green";
+        valid = true;
+        formData[1].style.borderColor = "green";
     }
     else {
         valid = false
@@ -144,7 +142,7 @@ function lastData(data) {
         errorData.remove();
     } catch {}
         return valid;
-  }
+}
 
 // validation de l'email
 function emailData(data) {
@@ -165,7 +163,7 @@ function emailData(data) {
         errorData.remove();
     } catch {}
         return valid;
-  }
+}
 
 // validation de la date de naissance
 function birthdateData(data) {
@@ -212,10 +210,10 @@ function quantityData(data) {
 
 // validation de la ville
 function locationData(data) {
-    var valid = true;
+    var valid = false;
 
     for (element in  data) {
-        if (data[element].checked = false) {
+        if (data[element].checked == true) {
             valid = true;
         }
     };
@@ -247,5 +245,3 @@ function conditionData(data) {
     } catch {}
         return valid;
 }
-
-    

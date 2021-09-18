@@ -81,7 +81,7 @@ function validationForm() {
         if (validation_form == true) {
             modalbody.style.display = "none"; // disparition de la fenêtre modale
             modalbodyconfirm.style.display = "block"; // apparition de la 2ème fenêtre modale de confirmation
-            resetForm(); //formulaire réinitialisé après envoi
+            resetForm(); // formulaire réinitialisé après envoi
         }
          // si réponse vide, cela bloquera également la soumission l'envoi du formulaire
         else {
@@ -104,7 +104,7 @@ function resetForm() {
     }
 }
   
-// validation du formulaire ou non (cela bloquera la soummission si tout n'est pas validé)
+// validation du formulaire ou non (cela bloquera sa soumission dans le cas où on s’aperçoit que l’utilisateur a mal rempli le formulaire
 function pushForm(e) {
     e.preventDefault();
     validationForm();
@@ -116,7 +116,7 @@ function firstData(data) {
     var error = ('<span id="error1" class="msg_error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>'); // voici le message d'erreur à afficher
     var errorData = document.getElementById("error1"); // ID du message d'erreur
 
-    if (data.length > 1) { // si la valeur rentrée contient strictement plus d'une lettre
+    if (data.length > 1) { // si la valeur rentrée contient strictement plus d'un caractère
         valid = true; // le champ est valide
         formData[0].style.border = "2px solid #33FF36"; // la bordure de l'input devient donc verte
     }
@@ -130,15 +130,17 @@ function firstData(data) {
         return valid;
 }
 
+// je vais maintenant répéter cette fonction pour chaque champ 
+
 // validation du nom
 function lastData(data) {
     var valid = false;
     var error = ('<span id="error2" class="msg_error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>');
     var errorData = document.getElementById("error2");
 
-    if (data.length > 1) {
-        valid = true;
-        formData[1].style.border = "2px solid #33FF36";
+    if (data.length > 1) { // si la valeur rentrée contient strictement plus d'un caractère
+        valid = true; // le champ est valide
+        formData[1].style.border = "2px solid #33FF36"; // la bordure de l'input devient donc verte
     }
     else {
         valid = false

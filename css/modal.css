@@ -230,6 +230,7 @@ main {
   
 @media only screen and (max-width: 1150px) {
     .modal-body-confirm {
+        display: none;
         height: 100vh;
     }
 }

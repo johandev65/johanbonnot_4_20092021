@@ -256,14 +256,9 @@ input {
     display: inline-block;
 }
 
-#error6 {
-    position: relative;
-    top: -2px;
-}
-
-#error7 {
-    position: relative;
-    top: -2px;
+#error1, 
+#error2 {
+    top: 5px;
 }
 
 .checkbox-label,

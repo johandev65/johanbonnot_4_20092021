@@ -228,6 +228,11 @@ main {
     background: #3876ac;
 }
   
+@media only screen and (max-width: 1150px) {
+    .modal-body-confirm {
+        height: 100vh;
+    }
+}
 
 /* Modal form */
 label {

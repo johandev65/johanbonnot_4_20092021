@@ -201,6 +201,15 @@ main {
     text-align: center;
     padding: 15px 8%;
     margin: 15px auto;
+    display: flex;
+    height: 70vh;
+    flex-direction: column;
+}
+
+.modal-body-confirm h3{
+    position: relative;
+    font-weight: 300;
+    top: 30%;
 }
 
 .modal-btn {
@@ -256,9 +265,14 @@ input {
     display: inline-block;
 }
 
-#error1, 
-#error2 {
-    top: 5px;
+#error6 {
+    position: relative;
+    top: -2px;
+}
+
+#error7 {
+    position: relative;
+    top: -2px;
 }
 
 .checkbox-label,
@@ -373,6 +387,8 @@ input {
     color: #fff;
     cursor: pointer;
     border: 0;
+    position: relative;
+    top: 70%;
 }
 
 .btn-submit,

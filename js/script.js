@@ -1,99 +1,99 @@
-// Menu responsive
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-const navLink = document.querySelectorAll(".nav-link");
+// CIBLAGE DES ÉLÉMENTS DU DOM
+const hamburger = document.querySelector(".hamburger"); // icône hamburger pour le mode responsive
+const navMenu = document.querySelector(".nav-menu");  // liste de tous les éléments du menu
+const navLink = document.querySelectorAll(".nav-link"); // lien de chaque élément du menu
 
-hamburger.addEventListener("click", mobileMenu);
-navLink.forEach(n => n.addEventListener("click", closeMenu));
+const modalBtn = document.querySelectorAll(".modal-btn"); // bouton "je m'inscris" pour ouvrir la fenêtre modale
+const modalbg = document.querySelector(".bground"); // totalité du bloc de la fenêtre modale
+const modalbody = document.querySelector(".modal-body"); // contenu de la fenêtre modale
+const modalbodyconfirm = document.querySelector(".modal-body-confirm"); // contenu de la fenêtre modale de confirmation
+const closemodal = document.querySelector(".close"); // bouton croix de la fenêtre modale
+const closemodalconfirm = document.querySelector(".close-confirm"); // bouton croix de la fenêtre modale de confirmation
 
+const formData = document.querySelectorAll(".formData input"); // tous les champs du formulaire
+const pushform = document.querySelector(".btn-submit"); // bouton d'envoi "c'est parti" du formulaire 
+const locationDiv = document.querySelector(".location_form"); // ciblage du bloc qui englobe tous les inputs et labels des villes
+const locationRadio = document.querySelectorAll(".location_form [name=\"location\"]"); // ciblage de chaque bouton radio de ville
+
+
+
+// MENU RESPONSIVE
+
+// ajout d'évènements
+hamburger.addEventListener("click", mobileMenu); // clic sur l'icône hamburger pour afficher le menu en version responsive
+navLink.forEach(n => n.addEventListener("click", closeMenu)); // à chaque clic sur un élément de menu, le menu se ferme ensuite automatiquement
+
+// la fonction mobileMenu() ajoute également une classe "active" sur le hamburger et sur navMenu, ce qui ouvre le menu mobile.
 function mobileMenu() {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
 }
-
+// la fonction closeMenu() supprime la class "active" à la fois du hamburger et du navMenu, ce qui ferme le menu mobile.
 function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 }
 
 
-// Ciblage des éléments du DOM
-const modalBtn = document.querySelectorAll(".modal-btn");
-const modalbg = document.querySelector(".bground");
-const modalbody = document.querySelector(".modal-body");
-const modalbodyconfirm = document.querySelector(".modal-body-confirm");
-const closemodal = document.querySelector(".close");
-const closemodalconfirm = document.querySelector(".close-confirm");
 
-const formData = document.querySelectorAll(".formData input");
-const pushform = document.querySelector(".btn-submit");
-const locationDiv = document.querySelector(".location_form");
-const locationCheckbox = document.querySelectorAll(".location_form [name=\"location\"]");
+// FENÊTRES MODALES ET FORMULAIRE
 
-
-// Ajout d"évènements
+// ajout d"évènements
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closemodal.addEventListener("click",  closeModal);
 closemodalconfirm.addEventListener("click",  closeModal);
 pushform.addEventListener("click", pushForm);
   
-// lancement de la fenêtre modale
+// création d'une fonction permettant le lancement de la fenêtre modale
 function launchModal() {
     modalbg.style.display = "block";
 }
 
-
-// fermeture des 2 fenêtres modales (celle du formulaire et celle de la confirmation)
+// création d'une fonction permettant la fermeture de chacune des fenêtres modales (celle du formulaire et celle de la confirmation)
 function closeModal() {
     modalbg.style.display = "none";
     modalbody.style.display = "block";
     modalbodyconfirm.style.display = "none";
-    resetForm();
+    resetForm(); 
 }
 
-
-// validation du formulaire ou non (cela bloquera la soummission si tout n'est pas validé)
-function pushForm(e) {
-    e.preventDefault();
-    validationForm();
-}
-
+// création d'une fonction permettant la validation du formulaire
 function validationForm() {
     let validation_list = []
-    first_data = firstData(formData[0].value);
-    last_data = lastData(formData[1].value);
-    email_data = emailData(formData[2].value);
-    birthdate_data = birthdateData(formData[3].value);
-    quantity_data = quantityData(formData[4].value);
-    location_data = locationData(locationCheckbox);
-    condition_data = conditionData(formData[11]);
-    validation_form = true;
-
+    first_data = firstData(formData[0].value); // valeur rentrée par l'utilisateur dans l'ID correspondant au prénom
+    last_data = lastData(formData[1].value); // valeur rentrée par l'utilisateur dans l'ID correspondant au nom
+    email_data = emailData(formData[2].value); // valeur rentrée par l'utilisateur dans l'ID correspondant au mail
+    birthdate_data = birthdateData(formData[3].value); // valeur rentrée par l'utilisateur dans l'ID correspondant à la date de naissance
+    quantity_data = quantityData(formData[4].value); // valeur rentrée par l'utilisateur dans l'ID correspondant au nombre de tournois disputés
+    location_data = locationData(locationRadio); // valeur rentrée par l'utilisateur (choix unique parmi 6 boutons radio)
+    condition_data = conditionData(formData[11]); // valeur rentrée par l'utilisateur dans l'ID correspondant à l'acceptation des conditions d'utilisation
+    validation_form = true; // si les valeurs entrées sont correctes, cela validera la soummission du formulaire
+    // ajout de toutes les valeurs à ma variable de type tableau nommé "validation_list"
     validation_list.push(first_data, last_data, email_data, birthdate_data, quantity_data, location_data, condition_data);
+    // pour chaque élément de mon tableau "validation_list"
     for (element in validation_list) {
-        // si un ou plusieurs éléments sonts incorrects, cela bloquera la soumission l'envoi du formulaire
+        // si un ou plusieurs éléments sonts incorrects, cela bloquera la soumission du formulaire
         if (validation_list[element] == false) {
             validation_form = false;
         }
     }
-        // si tous les éléments sont corrects, cela validera la soummission du formulaire et affichera une 2ème fenêtre modale de confirmation)
+        // si tous les éléments sont corrects, cela affichera une 2ème fenêtre modale de confirmation
         if (validation_form == true) {
-            modalbody.style.display = "none";
-            modalbodyconfirm.style.display = "block";
-            resetForm();
+            modalbody.style.display = "none"; // disparition de la fenêtre modale
+            modalbodyconfirm.style.display = "block"; // apparition de la 2ème fenêtre modale de confirmation
+            resetForm(); //formulaire réinitialisé après envoi
         }
          // si réponse vide, cela bloquera également la soumission l'envoi du formulaire
         else {
-            return false;
+            return false; 
     }
 }
 
-
-// Reset du formulaire
+// création d'une fonction permettant la réinitialisation du formulaire
 function resetForm() {
     for (element in formData) {
         try {
-            document.getElementById("myForm").reset(); 
+            document.getElementById("myForm").reset(); // Reset total des données du formulaire après fermeture de la modale
             formData[element].value = "";
             formData[element].style.borderColor = "white";
             // reset des messages d'erreurs
@@ -104,22 +104,28 @@ function resetForm() {
     }
 }
   
+// validation du formulaire ou non (cela bloquera la soummission si tout n'est pas validé)
+function pushForm(e) {
+    e.preventDefault();
+    validationForm();
+}
+
 // validation du prénom
 function firstData(data) {
-    var valid = false;
-    var error = ('<span id="error1" class="msg_error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>');
-    var errorData = document.getElementById("error1");
+    var valid = false; // si la valeur rentrée est invalide
+    var error = ('<span id="error1" class="msg_error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>'); // voici le message d'erreur à afficher
+    var errorData = document.getElementById("error1"); // ID du message d'erreur
 
-    if (data.length > 1) {
-        valid = true;
-        formData[0].style.borderColor = "green";
+    if (data.length > 1) { // si la valeur rentrée contient strictement plus d'une lettre
+        valid = true; // le champ est valide
+        formData[0].style.border = "2px solid #33FF36"; // la bordure de l'input devient donc verte
     }
-    else {
-        valid = false
-        formData[0].style.borderColor = "red";
-        formData[0].insertAdjacentHTML("afterend", error)
-    } try {
-        errorData.remove();
+    else { // sinon
+        valid = false // si le champ est invalide
+        formData[0].style.border = "2px solid red"; // la bordure de l'input devient donc rouge
+        formData[0].insertAdjacentHTML("afterend", error) // cela affiche ensuite un message d'erreur
+    } try { 
+        errorData.remove(); // le message d'erreur est supprimé
     } catch {}
         return valid;
 }
@@ -132,11 +138,11 @@ function lastData(data) {
 
     if (data.length > 1) {
         valid = true;
-        formData[1].style.borderColor = "green";
+        formData[1].style.border = "2px solid #33FF36";
     }
     else {
         valid = false
-        formData[1].style.borderColor = "red";
+        formData[1].style.border = "2px solid red";
         formData[1].insertAdjacentHTML("afterend", error);
     } try {
         errorData.remove();
@@ -154,10 +160,10 @@ function emailData(data) {
 
     if (regex_is) {
         valid = true;
-        formData[2].style.borderColor = "green";
+        formData[2].style.border = "2px solid #33FF36";
     } else {
         valid = false;
-        formData[2].style.borderColor = "red";
+        formData[2].style.border = "2px solid red";
         formData[2].insertAdjacentHTML("afterend", error);
     } try {
         errorData.remove();
@@ -175,11 +181,11 @@ function birthdateData(data) {
 
     if (regex_is) {
         valid = true;
-        formData[3].style.borderColor = "green";
+        formData[3].style.border = "2px solid #33FF36";
     }
     else {
         valid = false
-        formData[3].style.borderColor = "red";
+        formData[3].style.border = "2px solid red";
         formData[3].insertAdjacentHTML("afterend", error);
     } try {
         errorData.remove();
@@ -197,10 +203,10 @@ function quantityData(data) {
 
     if (regex_is) {
         valid = true;
-        formData[4].style.borderColor = "green";
+        formData[4].style.border = "2px solid #33FF36";
     } else {
         valid = false;
-        formData[4].style.borderColor = "red";
+        formData[4].style.border = "2px solid red";
         formData[4].insertAdjacentHTML("afterend", error);
     } try {
         errorData.remove();

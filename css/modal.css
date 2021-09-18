@@ -201,15 +201,12 @@ main {
     text-align: center;
     padding: 15px 8%;
     margin: 15px auto;
-    display: flex;
-    height: 70vh;
-    flex-direction: column;
+    height: 90vh;
 }
-
 .modal-body-confirm h3{
-    position: relative;
     font-weight: 300;
-    top: 30%;
+    position: relative;
+    top: 40%;
 }
 
 .modal-btn {
@@ -228,12 +225,6 @@ main {
     background: #3876ac;
 }
   
-@media only screen and (max-width: 1150px) {
-    .modal-body-confirm {
-        display: none;
-        height: 90vh;
-    }
-}
 
 /* Modal form */
 label {
@@ -394,7 +385,7 @@ input {
     cursor: pointer;
     border: 0;
     position: relative;
-    top: 70%;
+    top: 75%;
 }
 
 .btn-submit,

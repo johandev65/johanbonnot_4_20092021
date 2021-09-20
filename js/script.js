@@ -113,7 +113,7 @@ function pushForm(e) {
 // validation du prénom
 function firstData(data) {
     var valid = false; // si la valeur rentrée est invalide
-    var error = ('<span id="error1" class="msg_error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>'); // voici le message d'erreur à afficher
+    var error = ('<span id="error1" class="msg_error">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</span>'); // voici le message d'erreur à afficher
     var errorData = document.getElementById("error1"); // ID du message d'erreur
 
     if (data.length > 1) { // si la valeur rentrée contient strictement plus d'un caractère
